@@ -1,0 +1,284 @@
+ create database AddressBookService;
+Query OK, 1 row affected (0.09 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| addressbookservice |
+| emplyeeplayrole    |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.09 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| addressbookservice |
+| emplyeeplayrole    |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> use AddressBookService;
+Database changed
+
+mysql> create table AddressBook (
+    -> firstName varchar(50) not null,
+    -> lastName varchar(50) not null,
+    -> address varchar(100) not null,
+    -> city varchar(50) not null,
+    -> state varchar(50) not null,
+    -> zip int not null,
+    -> phoneNumber double not null,
+    -> email varchar(100) not null );
+Query OK, 0 rows affected (0.78 sec)
+
+mysql> desc AddressBook;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| firstName   | varchar(50)  | NO   |     | NULL    |       |
+| lastName    | varchar(50)  | NO   |     | NULL    |       |
+| address     | varchar(100) | NO   |     | NULL    |       |
+| city        | varchar(50)  | NO   |     | NULL    |       |
+| state       | varchar(50)  | NO   |     | NULL    |       |
+| zip         | int          | NO   |     | NULL    |       |
+| phoneNumber | double       | NO   |     | NULL    |       |
+| email       | varchar(100) | NO   |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+8 rows in set (0.15 sec)
+
+mysql> insert into AddressBook (firstname, lastname, address,city, state, zip,phoneNumber,email) values
+    ->     ->  ('Vanna', 'Singh','Chakdaud Nagar','Prayagraj','Uttar Pradesh', 211008, 7905400009,'vannasingh1999@gmail.com'),
+    ->     ->  ('Sejal','Kesarwani','Ramapura','Ethawa','Bihar', 212920, 99999999,'sejal@gmail.com'),
+    ->     ->  ('Mohit','Yadav','Alambagh','Lucknow','Uttar Pradesh', 211005, 88888888,'mohit@gmail.com'),
+    ->     ->  ('Somya','pal','sirinagara','Kanpur','Uttar Pradesh', 211008, 777777777,'somya@gmail.com');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '->  ('Vanna', 'Singh','Chakdaud Nagar','Prayagraj','Uttar Pradesh', 211008, 7905' at line 2
+mysql> insert into AddressBook (firstname, lastname, address,city, state, zip,phoneNumber,email) values
+    ->     ->  ('Vanna', 'Singh','Chakdaud Nagar','Prayagraj','Uttar Pradesh', 211008, 7905400009,'vannasingh1999@gmail.com'),
+    ->     ->  ('Sejal','Kesarwani','Ramapura','Ethawa','Bihar', 212920, 99999999,'sejal@gmail.com'),
+    ->     ->  ('Mohit','Yadav','Alambagh','Lucknow','Uttar Pradesh', 211005, 88888888,'mohit@gmail.com'),
+    ->     ->  ('Somya','pal','sirinagara','Kanpur','Uttar Pradesh', 211008, 777777777,'somya@gmail.com');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '->  ('Vanna', 'Singh','Chakdaud Nagar','Prayagraj','Uttar Pradesh', 211008, 7905' at line 2
+mysql>  insert into AddressBook (firstname, lastname, address,city, state, zip,phoneNumber,email) values
+    ->     ->  ('Vanna', 'Singh','Chakdaud Nagar','Prayagraj','Uttar Pradesh', 211008, 7905400009,'vannasingh1999@gmail.com'),
+    ->     ->  ('Sejal','Kesarwani','Ramapura','Ethawa','Bihar', 212920, 99999999,'sejal@gmail.com'),
+    ->     ->  ('Mohit','Yadav','Alambagh','Lucknow','Uttar Pradesh', 211005, 88888888,'mohit@gmail.com'),
+    ->     ->  ('Somya','pal','sirinagara','Kanpur','Uttar Pradesh', 211008, 777777777,'somya@gmail.com')
+    ->     ->  ('Somya','pal','sirinagara','Kanpur','Uttar Pradesh', 211008, 777777777,'somya@gmail.com')
+    ->
+    -> ^C
+mysql>  insert into AddressBook (firstname, lastname, address,city, state, zip,phoneNumber,email) values
+    ->     ->  ('Vanna', 'Singh','Chakdaud Nagar','Prayagraj','Uttar Pradesh', 211008, 7905400009,'vannasingh1999@gmail.com'),
+    ->     ->  ('Sejal','Kesarwani','Ramapura','Ethawa','Bihar', 212920, 99999999,'sejal@gmail.com'),
+    ->     ->  ('Mohit','Yadav','Alambagh','Lucknow','Uttar Pradesh', 211005, 88888888,'mohit@gmail.com'),
+    ->     ->  ('Mohit','Yadav','Alambagh','Lucknow','Uttar Pradesh', 211005, 88888888,'mohit@gmail.com'),^C
+mysql> insert into AddressBook (firstname, lastname, address,city, state, zip,phoneNumber,email) values
+    ->  ('Vanna', 'Singh','Chakdaud Nagar','Prayagraj','Uttar Pradesh', 211008, 7905400009,'vannasingh1999@gmail.com'),
+    ->  ('Sejal','Kesarwani','Ramapura','Ethawa','Bihar', 212920, 99999999,'sejal@gmail.com'),
+    -> ('Mohit','Yadav','Alambagh','Lucknow','Uttar Pradesh', 211005, 88888888,'mohit@gmail.com'),
+    -> ('Somya','pal','sirinagara','Kanpur','Uttar Pradesh', 211008, 777777777,'somya@gmail.com');
+Query OK, 4 rows affected (0.24 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> desc AddressBook;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| firstName   | varchar(50)  | NO   |     | NULL    |       |
+| lastName    | varchar(50)  | NO   |     | NULL    |       |
+| address     | varchar(100) | NO   |     | NULL    |       |
+| city        | varchar(50)  | NO   |     | NULL    |       |
+| state       | varchar(50)  | NO   |     | NULL    |       |
+| zip         | int          | NO   |     | NULL    |       |
+| phoneNumber | double       | NO   |     | NULL    |       |
+| email       | varchar(100) | NO   |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+8 rows in set (0.12 sec)
+
+mysql> select * from AddressBook;
++-----------+-----------+----------------+-----------+---------------+--------+-------------+--------------------------+
+| firstName | lastName  | address        | city      | state         | zip    | phoneNumber | email                    |
++-----------+-----------+----------------+-----------+---------------+--------+-------------+--------------------------+
+| Vanna     | Singh     | Chakdaud Nagar | Prayagraj | Uttar Pradesh | 211008 |  7905400009 | vannasingh1999@gmail.com |
+| Sejal     | Kesarwani | Ramapura       | Ethawa    | Bihar         | 212920 |    99999999 | sejal@gmail.com          |
+| Mohit     | Yadav     | Alambagh       | Lucknow   | Uttar Pradesh | 211005 |    88888888 | mohit@gmail.com          |
+| Somya     | pal       | sirinagara     | Kanpur    | Uttar Pradesh | 211008 |   777777777 | somya@gmail.com          |
++-----------+-----------+----------------+-----------+---------------+--------+-------------+--------------------------+
+4 rows in set (0.04 sec)
+
+mysql> update AddressBook set  lastName='Sharma' where firstname='Somya';
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update addressbook set phoneNumber=9876543210 where firstname='Mohit';
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from AddressBook;
++-----------+-----------+----------------+-----------+---------------+--------+-------------+--------------------------+
+| firstName | lastName  | address        | city      | state         | zip    | phoneNumber | email                    |
++-----------+-----------+----------------+-----------+---------------+--------+-------------+--------------------------+
+| Vanna     | Singh     | Chakdaud Nagar | Prayagraj | Uttar Pradesh | 211008 |  7905400009 | vannasingh1999@gmail.com |
+| Sejal     | Kesarwani | Ramapura       | Ethawa    | Bihar         | 212920 |    99999999 | sejal@gmail.com          |
+| Mohit     | Yadav     | Alambagh       | Lucknow   | Uttar Pradesh | 211005 |  9876543210 | mohit@gmail.com          |
+| Somya     | Sharma    | sirinagara     | Kanpur    | Uttar Pradesh | 211008 |   777777777 | somya@gmail.com          |
++-----------+-----------+----------------+-----------+---------------+--------+-------------+--------------------------+
+4 rows in set (0.00 sec)
+
+mysql> delete from addressBook where lastname='Yadav';
+Query OK, 1 row affected (0.35 sec)
+
+mysql> select * from AddressBook;
++-----------+-----------+----------------+-----------+---------------+--------+-------------+--------------------------+
+| firstName | lastName  | address        | city      | state         | zip    | phoneNumber | email                    |
++-----------+-----------+----------------+-----------+---------------+--------+-------------+--------------------------+
+| Vanna     | Singh     | Chakdaud Nagar | Prayagraj | Uttar Pradesh | 211008 |  7905400009 | vannasingh1999@gmail.com |
+| Sejal     | Kesarwani | Ramapura       | Ethawa    | Bihar         | 212920 |    99999999 | sejal@gmail.com          |
+| Somya     | Sharma    | sirinagara     | Kanpur    | Uttar Pradesh | 211008 |   777777777 | somya@gmail.com          |
++-----------+-----------+----------------+-----------+---------------+--------+-------------+--------------------------+
+3 rows in set (0.05 sec)
+
+mysql> select * from AddressBook where city = 'Prayagraj' or State='Uttar Pradesh';
++-----------+----------+----------------+-----------+---------------+--------+-------------+--------------------------+
+| firstName | lastName | address        | city      | state         | zip    | phoneNumber | email                    |
++-----------+----------+----------------+-----------+---------------+--------+-------------+--------------------------+
+| Vanna     | Singh    | Chakdaud Nagar | Prayagraj | Uttar Pradesh | 211008 |  7905400009 | vannasingh1999@gmail.com |
+| Somya     | Sharma   | sirinagara     | Kanpur    | Uttar Pradesh | 211008 |   777777777 | somya@gmail.com          |
++-----------+----------+----------------+-----------+---------------+--------+-------------+--------------------------+
+2 rows in set (0.00 sec)
+
+mysql> select count(firstname) from AddressBook where city = 'Prayagraj';
++------------------+
+| count(firstname) |
++------------------+
+|                1 |
++------------------+
+1 row in set (0.06 sec)
+
+mysql> select count(firstName) from AddressBook where state = 'Bihar';
++------------------+
+| count(firstName) |
++------------------+
+|                1 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select count(firstname) from AddressBook where city='Lucknow';
++------------------+
+| count(firstname) |
++------------------+
+|                0 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> insert into AddressBook(firstname,lastname,address,city,state,zip,phoneNumber,email)
+    ->  values ('Abhi','V','coorg','Chikkamagalur','Karnatak',50102,9874561023,'abhi@gmail.com');
+Query OK, 1 row affected (0.29 sec)
+
+mysql> insert into AddressBook(firstname,lastname,address,city,state,zip,phoneNumber,email)
+    -> values('Vijay','Mishra','VaidyaPatti','Pratpgarh','Uttar Pradesh',851026,9874563201,'Vijay@gmail.com');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> insert into AddressBook(firstname,lastname,address,city,state,zip,phoneNumber,email)
+    ->  values('uday','reddy','gauribidanur','benagaluru','karnataka',652142,8520147963,'Uday@gmail.com');
+Query OK, 1 row affected (0.15 sec)
+
+mysql> select * from AddressBook;
++-----------+-----------+----------------+---------------+---------------+--------+-------------+--------------------------+
+| firstName | lastName  | address        | city          | state         | zip    | phoneNumber | email                    |
++-----------+-----------+----------------+---------------+---------------+--------+-------------+--------------------------+
+| Vanna     | Singh     | Chakdaud Nagar | Prayagraj     | Uttar Pradesh | 211008 |  7905400009 | vannasingh1999@gmail.com |
+| Sejal     | Kesarwani | Ramapura       | Ethawa        | Bihar         | 212920 |    99999999 | sejal@gmail.com          |
+| Somya     | Sharma    | sirinagara     | Kanpur        | Uttar Pradesh | 211008 |   777777777 | somya@gmail.com          |
+| Abhi      | V         | coorg          | Chikkamagalur | Karnatak      |  50102 |  9874561023 | abhi@gmail.com           |
+| Vijay     | Mishra    | VaidyaPatti    | Pratpgarh     | Uttar Pradesh | 851026 |  9874563201 | Vijay@gmail.com          |
+| uday      | reddy     | gauribidanur   | benagaluru    | karnataka     | 652142 |  8520147963 | Uday@gmail.com           |
++-----------+-----------+----------------+---------------+---------------+--------+-------------+--------------------------+
+6 rows in set (0.01 sec)
+
+mysql> select firstname,city from AddressBook order by city;
++-----------+---------------+
+| firstname | city          |
++-----------+---------------+
+| uday      | benagaluru    |
+| Abhi      | Chikkamagalur |
+| Sejal     | Ethawa        |
+| Somya     | Kanpur        |
+| Vijay     | Pratpgarh     |
+| Vanna     | Prayagraj     |
++-----------+---------------+
+6 rows in set (0.06 sec)
+
+mysql> alter table addressbook add bookName varchar(25) not null, add contactType varchar(25)  not null;
+Query OK, 0 rows affected (1.81 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc addressBook;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| firstName   | varchar(50)  | NO   |     | NULL    |       |
+| lastName    | varchar(50)  | NO   |     | NULL    |       |
+| address     | varchar(100) | NO   |     | NULL    |       |
+| city        | varchar(50)  | NO   |     | NULL    |       |
+| state       | varchar(50)  | NO   |     | NULL    |       |
+| zip         | int          | NO   |     | NULL    |       |
+| phoneNumber | double       | NO   |     | NULL    |       |
+| email       | varchar(100) | NO   |     | NULL    |       |
+| bookName    | varchar(25)  | NO   |     | NULL    |       |
+| contactType | varchar(25)  | NO   |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+10 rows in set (0.02 sec)
+
+mysql>  update AddressBook set bookname='one', contactType='Family' where lastname='Mishra' ;
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update addressBook set bookname='two' ,contactType='Friends' where firstname='Vijay';
+Query OK, 1 row affected (0.27 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update addressbook set bookname='two',contactType='Profession' where  lastname='Yadav';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql>  select * from AddressBook;
++-----------+-----------+----------------+---------------+---------------+--------+-------------+--------------------------+----------+-------------+
+| firstName | lastName  | address        | city          | state         | zip    | phoneNumber | email                    | bookName | contactType |
++-----------+-----------+----------------+---------------+---------------+--------+-------------+--------------------------+----------+-------------+
+| Vanna     | Singh     | Chakdaud Nagar | Prayagraj     | Uttar Pradesh | 211008 |  7905400009 | vannasingh1999@gmail.com |          |             |
+| Sejal     | Kesarwani | Ramapura       | Ethawa        | Bihar         | 212920 |    99999999 | sejal@gmail.com          |          |             |
+| Somya     | Sharma    | sirinagara     | Kanpur        | Uttar Pradesh | 211008 |   777777777 | somya@gmail.com          |          |             |
+| Abhi      | V         | coorg          | Chikkamagalur | Karnatak      |  50102 |  9874561023 | abhi@gmail.com           |          |             |
+| Vijay     | Mishra    | VaidyaPatti    | Pratpgarh     | Uttar Pradesh | 851026 |  9874563201 | Vijay@gmail.com          | two      | Friends     |
+| uday      | reddy     | gauribidanur   | benagaluru    | karnataka     | 652142 |  8520147963 | Uday@gmail.com           |          |             |
++-----------+-----------+----------------+---------------+---------------+--------+-------------+--------------------------+----------+-------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from addressbook where contactType='Family';
+Empty set (0.00 sec)
+
+mysql> select * from AddressBook where contacttype='Friends';
++-----------+----------+-------------+-----------+---------------+--------+-------------+-----------------+----------+-------------+
+| firstName | lastName | address     | city      | state         | zip    | phoneNumber | email           | bookName | contactType |
++-----------+----------+-------------+-----------+---------------+--------+-------------+-----------------+----------+-------------+
+| Vijay     | Mishra   | VaidyaPatti | Pratpgarh | Uttar Pradesh | 851026 |  9874563201 | Vijay@gmail.com | two      | Friends     |
++-----------+----------+-------------+-----------+---------------+--------+-------------+-----------------+----------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select count(firstname) from AddressBook where contactType='family';
++------------------+
+| count(firstname) |
++------------------+
+|                0 |
++------------------+
+1 row in set (0.00 sec)
